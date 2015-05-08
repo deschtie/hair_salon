@@ -7,7 +7,12 @@ describe(Client) do
     Client.clear()
   end
   
-  describe("n")
+  describe("#name")do 
+    it("gives you the name of the client") do
+      test_client = Client.new("Angela Moore")
+      expect(test_client.name()).to(eq("Angela Moore"))
+    end
+  end
   
   describe(".all") do
     it("is empty at first") do
@@ -31,5 +36,6 @@ describe(Client) do
     end
   end
 
+  
 
 end
