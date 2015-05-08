@@ -9,6 +9,8 @@ set :bind, '0.0.0.0'
 set :port, '3000'
 #needed for nitrous.io to work
 
+DB = PG.connect({:dbname => "hair_salon"})
+
 
 get("/") do
   @clients = Client.all()

@@ -1,10 +1,12 @@
-require('rspec')
-require('client')
-
+require("spec_helper")
 
 describe(Client) do
-  before() do
-    Client.clear()
+  describe("#==") do
+    it("is the same client if they have the same name") do
+      test_client_1 = Client.new({:name => "Angela Moore"})
+      test_client_2 = Client.new({:name => "Angela Moore"})
+      expect(test_client_1).to(eq(test_client_2))
+    end
   end
   
   describe("#name")do 
@@ -15,7 +17,7 @@ describe(Client) do
   end
   
   describe(".all") do
-    it("is empty at first") do
+    it("is starts without any clients") do
       expect(Client.all()).to(eq([]))
     end
   end
@@ -27,14 +29,7 @@ describe(Client) do
       expect(Client.all()).to(eq([test_client]))
     end
   end
-  
-  describe(".clear") do
-    it("empties out all of the saved clients") do
-      Client.new({:name => "Angela Moore"}).save()
-      Client.clear()
-      expect(Client.all).to(eq([]))
-    end
-  end
+ 
 
   
 
