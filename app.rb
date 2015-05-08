@@ -14,12 +14,22 @@ DB = PG.connect({:dbname => "hair_salon_test"})
 
 get("/") do
   @clients = Client.all()
+  @stylists = Stylist.all()
   erb(:index)
 end
 
 post("/clients") do
   name = params.fetch("name")
-  client = Client.new({:name => name})
+  id = params.fetch("id")
+  client = Client.new({:name => name, :id => id})
   client.save()
+  erb(:success)
+end
+
+post("/stylists") do
+  name = params.fetch("name")
+  id = params.fetch("id")
+  stylist = Stylist.new({:name => name, :id => id})
+  stylist.save()
   erb(:success)
 end
