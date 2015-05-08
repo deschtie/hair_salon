@@ -1,0 +1,17 @@
+<h1>Pinky's Pretty Perms!</h1>
+<h2>Client Page</h2>
+<div class="container">
+  <p><h4>Client List:</h4></p>
+  <ul>
+    <% @clients.each() do |client| %>
+      <li><%= client.name() %> </li>
+    <% end %>
+  </ul>
+
+
+  <h4>Add a New Client!</h4>
+  <form action="/clients" method="post">
+    <label for="name">Client Name</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add</button>
+</div>

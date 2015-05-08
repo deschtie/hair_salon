@@ -1,0 +1,17 @@
+<h1>Pinky's Pretty Perms!</h1>
+<h2>Stylist Page</h2>
+<div class="container">
+  <p><h4>Stylist List:</h4></p>
+  <ul>
+    <% @stylist.each() do |stylist| %>
+      <li><%= stylist.name() %> </li>
+    <% end %>
+  </ul>
+
+
+  <h4>Add a New Stylist!</h4>
+  <form action="/stylists" method="post">
+    <label for="name">Stylist Name</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add</button>
+</div>
