@@ -11,5 +11,13 @@ set :port, '3000'
 
 
 get("/") do
+  @clients = Client.all()
   erb(:index)
+end
+
+post("/clients") do
+  name = params.fetch("name")
+  client = Client.new(name)
+  client.save()
+  erb(:success)
 end
