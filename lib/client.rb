@@ -1,15 +1,12 @@
 class Client
   @@all_clients = []
   
-  define_method(:initialize) do |name|
-    @name = name
+  attr_reader(:name)
+  
+  define_method(:initialize) do |attributes|
+    @name = attributes.fetch(:name)
   end 
-  
-  define_method(:name) do
-    @name
-  end
-  
-  
+
   define_singleton_method(:all) do
     @@all_clients
   end
