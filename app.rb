@@ -17,7 +17,7 @@ end
 
 post("/clients") do
   name = params.fetch("name")
-  client = Client.new(name)
+  client = Client.new({:name => name})
   client.save()
   erb(:success)
 end
