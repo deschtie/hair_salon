@@ -1,6 +1,8 @@
 <h1>Pinky's Pretty Perms App</h1>
 <h2>Stylist Page</h2>
 <div class="container">
+
+<% if @stylists.any?() %>
   <p><h4>Stylist List:</h4></p>
   <ul>
     <% @stylists.each() do |stylist| %>
@@ -8,8 +10,13 @@
     <% end %>
   </ul>
 
+<% else %>
 
-  <h4>Add a New Stylist!</h4>
+<h4>You haven't added any stylists yet!</h4>
+
+<% end %>
+
+<p><h4>Add a New Stylist!</h4></p>
   <form action="/stylists" method="post">
     <label for="name">Stylist Name</label>
     <input id="name" name="name" type="text">

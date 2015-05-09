@@ -24,3 +24,4 @@ post("/stylists") do
   stylist.save()
   erb(:stylist_success)
 end
+
