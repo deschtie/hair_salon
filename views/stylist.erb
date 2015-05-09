@@ -1,24 +1,28 @@
-
-
 <h1><%= @stylist.name() %></h1>
-
 <% if @stylist.clients.any?() %>
 
-<h3>List of Clients:</h3>
+<p><h4>List of Clients:</h4></p>
 
 <ul>
   <% @stylist.clients().each() do |client| %>
-  <li><a href=""<%= client.name() %></li>
+  <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
   <% end %>
 </ul>
 
 <% else %>
 
-<p><%= @stylist.name() %> doesn't have any clients yet!</p>
+
+<h4><%= @stylist.name() %> doesn't have any clients yet!</h4>
+
 
 <% end %>
 
-<h3>Add a client to <%= @stylist.name() %></h3>
+<p><h4>Add a client to <%= @stylist.name() %></h4></p>
+  <form action="/clients" method="post">
+    <label for="name">Client Name</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add</button>
+</div>
 
 <div class= "container">
   <a href="/">Back to Main Page</a>

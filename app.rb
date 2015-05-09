@@ -30,3 +30,10 @@ get("/stylists/:id") do
   erb(:stylist)
 end
 
+post("/clients") do
+  name = params.fetch("name")
+  client = Client.new({:name => name, :stylist_id => nil, :id => nil})
+  client.save()
+  erb(:client_success)
+end
+

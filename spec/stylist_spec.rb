@@ -44,12 +44,24 @@ describe(Stylist) do
     it('returns an array of clients for the particular stylist') do
       test_stylist = Stylist.new({:name => "Beckie Raynard", :id => nil})
       test_stylist.save()
-      test_client = Client.new({:name => "Catie Cacciatore", :stylist_id => test_stylist.id()})
+      test_client = Client.new({:name => "Catie Cacciatore", :stylist_id => nil, :id => 5})
       test_client.save()
-      test_client_2 = Client.new({:name => "Catie Cacciatore", :stylist_id => test_stylist.id()})
+      test_client_2 = Client.new({:name => "Susie Reid", :stylist_id => nil, :id => 2})
       test_client_2.save()
-      expect(test_stylist.clients()).to(eq([test_client, test_client_2]))
+      test_clients = Client.all()
+      test_clients.push(Client.all())
+      expect(test_stylist.clients()).to(eq(test_clients))
     end
   end
   
+  describe(".find") do
+    it("returns a stylist by its ID") do
+      test_stylist = Stylist.new({:name => "Beckie Raynard", :id => nil})
+      test_stylist.save()
+      test_stylist2 = Stylist.new({:name => "Jennifer Mendoza", :id => nil})
+      test_stylist2.save()
+      expect(Stylist.find(test_stylist2.id())).to(eq(test_stylist2))
+    end
+  end
+   
 end
