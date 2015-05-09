@@ -25,3 +25,4 @@ post("/stylists") do
   erb(:stylist_success)
 end
 
+

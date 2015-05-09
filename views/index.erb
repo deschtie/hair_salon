@@ -6,7 +6,7 @@
   <p><h4>Stylist List:</h4></p>
   <ul>
     <% @stylists.each() do |stylist| %>
-      <li><%= stylist.name() %> </li>
+    <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
     <% end %>
   </ul>
 

@@ -16,6 +16,7 @@ describe("adding a new stylist", {:type => :feature}) do
 end
   
 
+
 #As a salon owner, I was to be able to view, add, update and delete clients
-#As a salon owner, I was to be able to view, add, update and delete stylists
+#As a salon owner, I was to be able to view, add, update and delete stylists ADD/VIEW YES--- need update/delete
 #As a salon owner, I want to be able to assign clients to a particular stylist

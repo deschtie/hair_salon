@@ -1,0 +1,24 @@
+
+
+<h1><%= @stylist.name() %></h1>
+
+
+<% if @stylist.clients.any?() %>
+
+<h3>List of Clients:</h3>
+
+<ul>
+  <% @stylist.clients().each() do |client| %>
+  <li><%= client.name() %></li>
+  <% end %>
+</ul>
+
+<% else %>
+
+<p><%= @stylist.name() %> doesn't have any clients yet!</p>
+
+<% end %>
+
+<div class= "container">
+  <a href="/">Back to Main Page</a>
+</div>
