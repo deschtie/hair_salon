@@ -2,14 +2,13 @@
 
 <h1><%= @stylist.name() %></h1>
 
-
 <% if @stylist.clients.any?() %>
 
 <h3>List of Clients:</h3>
 
 <ul>
   <% @stylist.clients().each() do |client| %>
-  <li><%= client.name() %></li>
+  <li><a href=""<%= client.name() %></li>
   <% end %>
 </ul>
 
@@ -18,6 +17,8 @@
 <p><%= @stylist.name() %> doesn't have any clients yet!</p>
 
 <% end %>
+
+<h3>Add a client to <%= @stylist.name() %></h3>
 
 <div class= "container">
   <a href="/">Back to Main Page</a>
