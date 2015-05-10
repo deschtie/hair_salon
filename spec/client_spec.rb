@@ -30,6 +30,7 @@ describe(Client) do
       expect(test_client.name()).to(eq("Angela Moore"))
     end
   end
+  
    describe("#styist_id") do
     it("lets you read the stylist id out") do
     test_client = Client.new({:name => "Angela Moore", :id => nil , :stylist_id => 1})
@@ -47,9 +48,9 @@ describe(Client) do
   
   describe(".find") do
     it("returns a client by its ID") do
-      test_client = Client.new({:name => "Angela Moore", :stylist_id => nil, :id => 1})
+      test_client = Client.new({:name => "Angela Moore", :stylist_id => 2, :id => nil})
       test_client.save()
-      test_client2 = Client.new({:name => "Susie Reid", :stylist_id => nil, :id => 2})
+      test_client2 = Client.new({:name => "Susie Reid", :stylist_id => 2, :id => nil})
       test_client2.save()
       expect(Client.find(test_client2.id())).to(eq(test_client2))
     end
