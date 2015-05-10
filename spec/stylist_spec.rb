@@ -47,6 +47,8 @@ describe(Stylist) do
       test_client.save()
       test_client_2 = Client.new({:name => "Susie Reid", :stylist_id => 2, :id => nil})
       test_client_2.save()
+      test_client_3 = Client.new({:name => "Anglea Moore", :stylist_id => 5, :id => nil})
+      test_client_3.save()
       expect(test_stylist.clients()).to(eq([test_client, test_client_2]))
     end
   end

@@ -25,9 +25,11 @@ describe("adding a new client", {:type => :feature}) do
     stylist.save()
     visit('/')
     click_link("Beckie Raynard")
+    client = Client.new({:name => "Susie Reid", :stylist_id => stylist.id(), :id => nil})
+    client.save()
     fill_in('name', :with => 'Susie Reid')
     click_button("Add")
-    expect(page).to(have_content("Return to the homepage"))
+    expect(page).to(have_content("client has been added"))
   end
 end
 
