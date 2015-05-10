@@ -31,14 +31,15 @@ class Client
   end
   
   
-  define_singleton_method(:find) do |id|
-    found_list = nil
+  define_singleton_method(:find) do |client_id|
+    returned_client = nil
     Client.all().each() do |client|
-      if self.id().==(@id)
-        found_client = client
+      if client.id().==(client_id)
+        returned_client = client
       end
     end
-    found_client
+    returned_client
   end
+
 
 end

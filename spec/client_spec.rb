@@ -51,7 +51,7 @@ describe(Client) do
       test_client.save()
       test_client2 = Client.new({:name => "Susie Reid", :stylist_id => nil, :id => 2})
       test_client2.save()
-      expect(Client.find(test_client2.id())).to(be_an_instance_of(Fixnum))
+      expect(Client.find(test_client2.id())).to(eq(test_client2))
     end
   end
   

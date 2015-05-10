@@ -40,7 +40,7 @@ class Stylist
 define_singleton_method(:find) do |stylist_id|
   returned_stylist = nil
     Stylist.all().each() do |stylist|
-      if stylist.id() == stylist_id
+      if stylist.id().==(stylist_id)
         returned_stylist = stylist
       end
     end
