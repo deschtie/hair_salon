@@ -4,19 +4,30 @@ Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
 
-describe("adding a new stylist", {:type => :feature}) do
+describe("adding a new stylist and then a new client", {:type => :feature}) do
   it("allows a user to add a new stylist to the database") do
     stylist = Stylist.new({:name => "Beckie Raynard", :id => nil})
     stylist.save()
     visit('/')
     fill_in('name', :with => 'Beckie Raynard')
     click_button('Add')
-    expect(page).to have_content('stylist has been added!')
+    click_link("Return to the homepage")
+    expect(page).to(have_content("Stylist List:"))
   end
 end
   
 
 
-#As a salon owner, I was to be able to view, add, update and delete clients
-#As a salon owner, I was to be able to view, add, update and delete stylists ADD/VIEW YES--- need update/delete
-#As a salon owner, I want to be able to assign clients to a particular stylist
+
+describe("adding a new client", {:type => :feature}) do
+  it("allows a user to add a new stylist to the database") do
+    stylist = Stylist.new({:name => "Beckie Raynard", :id => nil})
+    stylist.save()
+    visit('/')
+    click_link("Beckie Raynard")
+    fill_in('name', :with => 'Susie Reid')
+    click_button("Add")
+    expect(page).to(have_content("Return to the homepage"))
+  end
+end
+

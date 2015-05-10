@@ -37,3 +37,7 @@ post("/clients") do
   erb(:client_success)
 end
 
+get("/clients/:id") do
+  @client = Client.find(params.fetch("id").to_id())
+  erb(:client)
+end
